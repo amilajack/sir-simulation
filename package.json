@@ -1,0 +1,12 @@
+{
+  "name": "sir-simulation",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:amilajack/sir-simulation.git",
+  "author": "Amila Welihinda <amilajack@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "gh-pages": "^2.0.1",
+    "parcel-bundler": "^1.12.3"
+  }
+}
