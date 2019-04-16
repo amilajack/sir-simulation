@@ -5,8 +5,16 @@
   "repository": "git@github.com:amilajack/sir-simulation.git",
   "author": "Amila Welihinda <amilajack@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "build": "parcel build index.html",
+    "deploy": "gh-pages -d dist"
+  },
   "devDependencies": {
     "gh-pages": "^2.0.1",
-    "parcel-bundler": "^1.12.3"
+    "parcel-bundler": "^1.12.3",
+    "parcel-plugin-static-files-copy": "^2.0.0"
+  },
+  "staticFiles": {
+    "staticPath": "data"
   }
 }
