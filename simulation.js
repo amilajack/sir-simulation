@@ -1,4 +1,4 @@
-function SirSimulation() {
+export function SirSimulation() {
   this.running = false;
   this.rate = 10;
 
@@ -86,13 +86,15 @@ function SirSimulation() {
     return total;
   };
 
+  const self = this;
+
   this.init_cs = function() {
     this.idToI = d3.map();
     let c;
     for (let i = 0; i < this.cs.length; i++) {
       c = this.cs[i];
       this.idToI.set(c.id, i);
-      c.rec = c.pop * sim.vacc;
+      c.rec = c.pop * self.vacc;
       c.sus = c.pop - c.rec;
       c.inf = 0;
       c.init();
@@ -106,7 +108,7 @@ function SirSimulation() {
   };
 }
 
-function County(i, id, pop, coms) {
+export function County(simulation, i, id, pop, coms) {
   this.i = i;
   this.id = id;
   this.pop = pop;
@@ -122,7 +124,7 @@ function County(i, id, pop, coms) {
   this.db;
 
   this.init = function() {
-    const c = sim.color(this.pop);
+    const c = simulation.color(this.pop);
     const d = d3.rgb(c);
     d.r = d.b;
     d.g = d.b;
@@ -138,14 +140,14 @@ function County(i, id, pop, coms) {
   this.step = function() {
     for (let i = 0; i < this.coms.length; i++) {
       const com = this.coms[i];
-      const ci = sim.idToI.get(+com.work_id);
-      const c = sim.cs[ci];
+      const ci = simulation.idToI.get(+com.work_id);
+      const c = simulation.cs[ci];
       const n = +com.total;
-      const dx = sim.beta * this.inf * (n / this.pop) * (c.sus / c.pop);
+      const dx = simulation.beta * this.inf * (n / this.pop) * (c.sus / c.pop);
       c.da += dx;
     }
-    this.da += sim.beta * this.inf * (this.sus / this.pop);
-    this.db += sim.gamma * this.inf;
+    this.da += simulation.beta * this.inf * (this.sus / this.pop);
+    this.db += simulation.gamma * this.inf;
   };
 
   this.flush = function() {
@@ -153,11 +155,9 @@ function County(i, id, pop, coms) {
     this.inf += this.da - this.db;
     this.rec += this.db;
 
-    sim.total_inf += this.da;
-    sim.current_inf += this.da - this.db;
+    simulation.total_inf += this.da;
+    simulation.current_inf += this.da - this.db;
 
     d3.select(`#s${this.id}`).style("fill", this.color(this.inf / this.pop));
   };
 }
-
-const sim = new SirSimulation();
