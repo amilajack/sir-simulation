@@ -6,7 +6,7 @@
   "author": "Amila Welihinda <amilajack@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "build": "parcel build index.html",
+    "build": "parcel build index.html --public-url /sir-simulation",
     "deploy": "rm -rf build && yarn build && gh-pages -d dist"
   },
   "devDependencies": {
