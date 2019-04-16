@@ -161,4 +161,3 @@ export function County(simulation, i, id, pop, coms) {
     d3.select(`#s${this.id}`).style("fill", this.color(this.inf / this.pop));
   };
 }
-
