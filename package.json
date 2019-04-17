@@ -1,23 +1,29 @@
 {
   "name": "sir-simulation",
   "version": "1.0.0",
-  "main": "index.js",
   "repository": "git@github.com:amilajack/sir-simulation.git",
-  "author": "Amila Welihinda <amilajack@gmail.com>",
   "license": "MIT",
+  "author": "Amila Welihinda <amilajack@gmail.com>",
+  "main": "index.js",
   "scripts": {
     "build": "parcel build src/index.html --public-url /sir-simulation",
     "deploy": "rm -rf build && yarn build && cp -r data dist && gh-pages -d dist",
+    "format": "yarn alfred run format",
     "start": "parcel src/index.html --open",
     "test": "yarn build"
   },
+  "dependencies": {
+    "d3": "^5.9.2"
+  },
   "devDependencies": {
+    "@amilajack/alfred": "^0.0.1-alpha.0",
     "gh-pages": "^2.0.1",
     "parcel-bundler": "^1.12.3"
   },
+  "alfred": {},
   "renovate": {
     "extends": [
       "bliss"
     ]
-  }  
+  }
 }

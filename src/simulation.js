@@ -29,7 +29,7 @@ export function SirSimulation() {
       .pow()
       .exponent(0.33)
       .domain(this.range)
-      .range(["#ffffff", "#08306b"]);
+      .range(['#ffffff', '#08306b']);
     this.init_cs();
   };
 
@@ -134,7 +134,7 @@ export function County(simulation, i, id, pop, coms) {
       .exponent(0.2)
       .domain([0, 1])
       .range([c, d.toString()]);
-    d3.select(`#s${this.id}`).style("fill", c);
+    d3.select(`#s${this.id}`).style('fill', c);
   };
 
   this.step = function() {
@@ -158,6 +158,6 @@ export function County(simulation, i, id, pop, coms) {
     simulation.total_inf += this.da;
     simulation.current_inf += this.da - this.db;
 
-    d3.select(`#s${this.id}`).style("fill", this.color(this.inf / this.pop));
+    d3.select(`#s${this.id}`).style('fill', this.color(this.inf / this.pop));
   };
 }
