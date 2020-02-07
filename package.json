@@ -9,21 +9,30 @@
     "build": "parcel build src/index.html --public-url /sir-simulation",
     "deploy": "rm -rf build && yarn build && cp -r data dist && gh-pages -d dist",
     "format": "yarn alfred run format",
+    "lint": "eslint .",
     "start": "parcel src/index.html --open",
     "test": "yarn build"
   },
   "dependencies": {
-    "d3": "^5.9.2"
+    "d3": "^5.15.0"
   },
   "devDependencies": {
     "@amilajack/alfred": "^0.0.1-alpha.0",
-    "gh-pages": "^2.0.1",
-    "parcel-bundler": "^1.12.3"
+    "eslint": "^6.8.0",
+    "eslint-config-bliss": "^4.6.0",
+    "gh-pages": "^2.2.0",
+    "parcel-bundler": "^1.12.4"
   },
   "alfred": {},
   "renovate": {
     "extends": [
       "bliss"
     ]
+  },
+  "eslintConfig": {
+    "extends": "bliss",
+    "env": {
+      "browser": true
+    }
   }
 }
