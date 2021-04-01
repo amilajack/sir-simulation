@@ -21,7 +21,7 @@
     "eslint": "^7.23.0",
     "eslint-config-bliss": "^5.0.0",
     "gh-pages": "^2.2.0",
-    "parcel-bundler": "^1.12.4"
+    "parcel-bundler": "^1.12.5"
   },
   "alfred": {},
   "renovate": {
