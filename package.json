@@ -20,7 +20,7 @@
     "@amilajack/alfred": "^0.0.1-alpha.0",
     "eslint": "^7.25.0",
     "eslint-config-bliss": "^5.0.0",
-    "gh-pages": "^2.2.0",
+    "gh-pages": "^3.1.0",
     "parcel-bundler": "^1.12.5"
   },
   "alfred": {},
